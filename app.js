@@ -461,11 +461,10 @@ function renderCerts() {
   grid.style.display = 'block';
   grid.innerHTML = html;
 
-  // Click to open modal (keyboard too)
   grid.querySelectorAll('.cert-view-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const idx = e.target.dataset.index;
+      const idx = btn.dataset.index;
       openCertModal(idx);
     });
   });
