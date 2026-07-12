@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visitor Dashboard — Prasad Thilanka Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+
+  <!-- ── LOGIN SCREEN ── -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-box">
+      <div class="login-icon">🔐</div>
+      <h2 class="login-title">Admin Access</h2>
+      <p class="login-sub">Visitor Analytics Dashboard</p>
+      <div class="login-form">
+        <input type="password" id="login-pass" class="login-input" placeholder="Enter admin password" autocomplete="current-password"/>
+        <button class="login-btn" id="login-btn">
+          <span>Unlock Dashboard</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <div class="login-error" id="login-error" style="display:none">❌ Incorrect password</div>
+      </div>
+  </div>
+
+  <!-- ── DASHBOARD ── -->
+  <div class="dashboard" id="dashboard" style="display:none">
+
+    <!-- Scan line -->
+    <div class="scan-line" aria-hidden="true"></div>
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="dash-logo">
+        <span class="dl-bracket">&lt;</span>
+        <span class="dl-text">Admin</span>
+        <span class="dl-bracket">/&gt;</span>
+      </div>
+      <nav class="dash-nav">
+        <button class="dash-nav-btn active" data-panel="overview" id="nav-overview">
+          <span>📊</span> Overview
+        </button>
+        <button class="dash-nav-btn" data-panel="visitors" id="nav-visitors">
+          <span>👥</span> Visitors
+        </button>
+        <button class="dash-nav-btn" data-panel="pages" id="nav-pages">
+          <span>📄</span> Page Activity
+        </button>
+        <button class="dash-nav-btn" data-panel="devices" id="nav-devices">
+          <span>💻</span> Devices
+        </button>
+        <button class="dash-nav-btn" data-panel="settings" id="nav-settings">
+          <span>⚙️</span> Settings
+        </button>
+      </nav>
+      <div class="dash-sidebar-footer">
+        <a href="index.html" class="dash-back-link">← Back to Portfolio</a>
+        <button class="dash-logout" id="dash-logout">🔒 Lock</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+      <!-- Header -->
+      <div class="dash-topbar">
+        <div class="dash-topbar-left">
+          <h1 class="dash-title" id="panel-title">📊 Overview</h1>
+          <span class="dash-live-dot"><span class="live-pulse"></span>Live</span>
+        </div>
+        <div class="dash-topbar-right">
+          <div class="dash-clock-widget">
+            <span class="dcw-flag">🇱🇰</span>
+            <div>
+              <span class="dcw-label">Colombo IST</span>
+              <span class="dcw-time" id="dash-clock">--:--</span>
+            </div>
+          </div>
+          <button class="clear-btn" id="clear-data-btn" title="Clear all visitor data">🗑️ Clear All</button>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Overview ── -->
+      <div class="panel active" id="panel-overview">
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon">👁️</div>
+            <div class="kpi-value" id="kpi-total-views">0</div>
+            <div class="kpi-label">Total Page Views</div>
+            <div class="kpi-trend up" id="kpi-views-trend">↑ All time</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">👤</div>
+            <div class="kpi-value" id="kpi-unique-visitors">0</div>
+            <div class="kpi-label">Unique Visitors</div>
+            <div class="kpi-trend" id="kpi-uv-trend">Sessions tracked</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⏱️</div>
+            <div class="kpi-value" id="kpi-avg-time">0s</div>
+            <div class="kpi-label">Avg. Time on Page</div>
+            <div class="kpi-trend" id="kpi-time-trend">Per session</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🌍</div>
+            <div class="kpi-value" id="kpi-today">0</div>
+            <div class="kpi-label">Views Today</div>
+            <div class="kpi-trend up" id="kpi-today-trend">↑ Since midnight IST</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+          <!-- Daily views chart -->
+          <div class="chart-card wide">
+            <div class="chart-header">
+              <h3 class="chart-title">📈 Daily Page Views (Last 14 Days)</h3>
+            </div>
+            <div class="bar-chart" id="daily-chart"></div>
+          </div>
+          <!-- Section views pie -->
+          <div class="chart-card">
+            <h3 class="chart-title">📑 Most Viewed Sections</h3>
+            <div class="section-bars" id="section-bars"></div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="chart-card">
+          <h3 class="chart-title">🕐 Recent Activity (Last 10 Visits)</h3>
+          <table class="activity-table" id="recent-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Time</th>
+                <th>Device</th>
+                <th>Browser</th>
+                <th>Screen</th>
+                <th>Sections Viewed</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="recent-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── PANEL: All Visitors ── -->
+      <div class="panel" id="panel-visitors">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title">👥 All Visitor Sessions</h3>
+            <div class="table-controls">
+              <input type="text" id="visitor-search" class="search-input" placeholder="🔍 Search…" />
+              <select id="visitor-sort" class="sort-select">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="longest">Longest Session</option>
+              </select>
+            </div>
+          </div>
+          <table class="activity-table full-table" id="all-visitors-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date &amp; Time (IST)</th>
+                <th>Device Type</th>
+                <th>OS</th>
+                <th>Browser</th>
+                <th>Screen</th>
+                <th>Sections Visited</th>
+                <th>Time on Site</th>
+                <th>Referrer</th>
+              </tr>
+            </thead>
+            <tbody id="all-visitors-tbody"></tbody>
+          </table>
+          <div class="table-empty" id="visitors-empty" style="display:none">
+            <div class="empty-icon">👻</div>
+            <p>No visitors recorded yet. Share your portfolio link to start tracking!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Page Activity ── -->
+      <div class="panel" id="panel-pages">
+        <div class="charts-row">
+          <div class="chart-card wide">
+            <h3 class="chart-title">📑 Section Engagement</h3>
+            <div id="section-detail-bars"></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">🔗 Referrer Sources</h3>
+            <div id="referrer-bars"></div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3 class="chart-title">⏰ Hourly Traffic Heatmap</h3>
+          <div class="heatmap" id="heatmap"></div>
+          <div class="heatmap-legend">
+            <span>Less</span>
+            <div class="heatmap-scale">
+              <span style="--c:rgba(109,40,217,0.1)"></span>
+              <span style="--c:rgba(109,40,217,0.3)"></span>
+              <span style="--c:rgba(109,40,217,0.5)"></span>
+              <span style="--c:rgba(0,212,255,0.6)"></span>
+              <span style="--c:rgba(0,212,255,0.9)"></span>
+            </div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Devices ── -->
+      <div class="panel" id="panel-devices">
+        <div class="charts-row">
+          <div class="chart-card">
+            <h3 class="chart-title">📱 Device Types</h3>
+            <div class="donut-chart-container">
+              <canvas id="device-donut" width="220" height="220"></canvas>
+              <div class="donut-legend" id="device-legend"></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">🌐 Browsers</h3>
+            <div id="browser-bars"></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">💻 Operating Systems</h3>
+            <div id="os-bars"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PANEL: Settings ── -->
+      <div class="panel" id="panel-settings">
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3 class="setting-title">🔐 Change Admin Password</h3>
+            <p class="setting-desc">Change the password required to access this dashboard.</p>
+            <input type="password" id="new-pass-1" class="admin-input" placeholder="New password"/>
+            <input type="password" id="new-pass-2" class="admin-input" placeholder="Confirm password"/>
+            <button class="setting-btn" id="change-pass-btn">Update Password</button>
+            <div class="setting-msg" id="pass-msg" style="display:none"></div>
+          </div>
+          <div class="setting-card">
+            <h3 class="setting-title">👁️ Public Visitor Badge</h3>
+            <p class="setting-desc">Show a live visitor count badge publicly on your portfolio.</p>
+            <div class="toggle-row">
+              <span>Show public visitor counter</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="public-badge-toggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <p class="setting-note">When enabled, a small badge appears on your portfolio showing total visitors.</p>
+          </div>
+          <div class="setting-card">
+            <h3 class="setting-title">📊 Export Data</h3>
+            <p class="setting-desc">Export your visitor data as a JSON or CSV file.</p>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+              <button class="setting-btn" id="export-json-btn">⬇️ Export JSON</button>
+              <button class="setting-btn secondary" id="export-csv-btn">⬇️ Export CSV</button>
+            </div>
+          </div>
+          <div class="setting-card danger">
+            <h3 class="setting-title" style="color:#f87171">⚠️ Clear Visitor Data</h3>
+            <p class="setting-desc">Permanently delete all recorded visitor sessions.</p>
+            <button class="setting-btn danger" id="clear-all-btn">🗑️ Clear All Data</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

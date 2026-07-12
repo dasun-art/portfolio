@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prasad Thilanka Priyadasun Dewaraja — Endpoint Security Engineer CV" />
+  <title>CV — Prasad Thilanka | Endpoint Security Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="cv.css" />
+</head>
+<body>
+
+  <!-- ── TOP TOOLBAR ── -->
+  <div class="cv-toolbar" id="cv-toolbar">
+    <a href="index.html" class="toolbar-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Portfolio
+    </a>
+    <div class="toolbar-center">
+      <span class="toolbar-label">Prasad Thilanka — Curriculum Vitae</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="toolbar-btn" id="btn-theme" title="Toggle theme">🌙 Dark</button>
+      <button class="toolbar-btn primary" id="btn-print" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- ── SCAN LINE ANIMATION ── -->
+  <div class="scan-line" id="scan-line" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
+       CV DOCUMENT
+  ══════════════════════════════════════ -->
+  <main class="cv-page" id="cv-page">
+
+    <!-- ── LEFT SIDEBAR ── -->
+    <aside class="cv-sidebar">
+
+      <!-- Profile -->
+      <div class="sidebar-profile">
+        <div class="profile-ring">
+          <img src="avatar.png" alt="Prasad Thilanka" class="profile-photo" id="cv-photo" />
+          <svg class="ring-svg" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="80" cy="80" r="74" fill="none" stroke="url(#ring-grad)" stroke-width="3" stroke-dasharray="465" stroke-dashoffset="0" stroke-linecap="round">
+              <animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="12s" repeatCount="indefinite"/>
+            </circle>
+            <defs>
+              <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6d28d9"/>
+                <stop offset="100%" stop-color="#00d4ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="profile-status">
+          <span class="status-dot"></span>
+          <span>Open to Opportunities</span>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading"><span class="heading-icon">📡</span>Contact</h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="ci-icon">✉️</span>
+            <div>
+              <span class="ci-label">Email</span>
+              <a href="mailto:thilanka.prasad@outlook.com" class="ci-value">thilanka.prasad<br/>@outlook.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div>
+              <span class="ci-label">Location</span>
+              <span class="ci-value">Colombo, Sri Lanka 🇱🇰</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <span class="ci-icon">🕐</span>
+            <div>
+              <span class="ci-label">Timezone</span>
+              <span class="ci-value">IST / UTC+5:30<br/><span id="sidebar-clock" style="font-family:'Fira Code',monospace;font-size:0.8rem;color:var(--accent)">Loading…</span></span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <span class="ci-icon">🌐</span>
+            <div>
+              <span class="ci-label">Portfolio</span>
+              <span class="ci-value">prasadthilanka.dev</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <span class="ci-icon">💼</span>
+            <div>
+              <span class="ci-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/prasad-thilanaka-14213518b" target="_blank" rel="noopener" class="ci-value" style="color:var(--accent)">prasad-thilanaka</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Core Competencies -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading"><span class="heading-icon">🛡️</span>Core Domains</h3>
+        <div class="competency-list">
+          <div class="competency-tag active">Endpoint Security (EDR/XDR)</div>
+          <div class="competency-tag">Threat Detection & Response</div>
+          <div class="competency-tag">Vulnerability Management</div>
+          <div class="competency-tag">Cloud Security</div>
+          <div class="competency-tag">Malware Incident Response</div>
+          <div class="competency-tag">Threat Hunting</div>
+          <div class="competency-tag">SIEM Correlation</div>
+          <div class="competency-tag">IT Operations (L2/L3)</div>
+          <div class="competency-tag">IT Asset Management</div>
+          <div class="competency-tag">Managed Service Delivery</div>
+        </div>
+      </div>
+
+      <!-- Technical Tools -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading"><span class="heading-icon">🔧</span>Tools & Platforms</h3>
+        <div class="sidebar-tools">
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>Kaspersky EDR Expert/Optimum</span><span class="tool-pct">92%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:92%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>Kaspersky XDR Optimum</span><span class="tool-pct">88%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:88%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>CrowdStrike Falcon</span><span class="tool-pct">85%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:85%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>Palo Alto Cortex XDR</span><span class="tool-pct">80%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:80%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>ManageEngine Endpoint Central</span><span class="tool-pct">80%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:80%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>Trend Micro / AI Vision One</span><span class="tool-pct">75%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:75%"></div></div>
+          </div>
+          <div class="tool-bar-item">
+            <div class="tool-bar-top"><span>Microsoft Defender for Endpoint</span><span class="tool-pct">70%</span></div>
+            <div class="tool-track"><div class="tool-fill" style="--w:70%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading"><span class="heading-icon">💬</span>Languages</h3>
+        <ul class="lang-list">
+          <li class="lang-item">
+            <span class="lang-name">Sinhala</span>
+            <span class="lang-level native">Native</span>
+          </li>
+          <li class="lang-item">
+            <span class="lang-name">English</span>
+            <span class="lang-level professional">Professional</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Additional Skills -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading"><span class="heading-icon">⚙️</span>Additional Skills</h3>
+        <div class="tag-cloud">
+          <span class="tag">BitLocker Encryption</span>
+          <span class="tag">Kaspersky Encryption</span>
+          <span class="tag">Linux Security</span>
+          <span class="tag">VM Lightweight Security</span>
+          <span class="tag">Embedded System Security</span>
+          <span class="tag">Help Desk L2/L3</span>
+          <span class="tag">IT Asset Mgmt</span>
+          <span class="tag">On-premise Deployment</span>
+          <span class="tag">Cloud Deployment</span>
+          <span class="tag">Kaspersky Licensing</span>
+          <span class="tag">Threat Reports</span>
+          <span class="tag">Security Dashboards</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <div class="cv-main">
+
+      <!-- Header -->
+      <header class="cv-header">
+        <div class="header-text">
+          <div class="header-badge">
+            <span class="badge-dot"></span>
+            Endpoint Security Engineer
+          </div>
+          <h1 class="cv-name">Prasad Thilanka<br/><span class="cv-name-last">Priyadasun Dewaraja</span></h1>
+          <p class="cv-tagline">
+            Results-driven cybersecurity professional specializing in <span class="highlight">Endpoint Security</span>, 
+            <span class="highlight">EDR/XDR</span>, and <span class="highlight">Threat Response</span> — 
+            protecting enterprise environments across multi-vector attack surfaces.
+          </p>
+          <div class="header-stats">
+            <div class="stat-pill">
+              <span class="sp-num">3+</span>
+              <span class="sp-label">Years in Endpoint Security</span>
+            </div>
+            <div class="stat-pill">
+              <span class="sp-num">8+</span>
+              <span class="sp-label">Years in IT Operations</span>
+            </div>
+            <div class="stat-pill">
+              <span class="sp-num">1000+</span>
+              <span class="sp-label">Endpoints Managed</span>
+            </div>
+            <div class="stat-pill">
+              <span class="sp-num">5+</span>
+              <span class="sp-label">EDR Platforms</span>
+            </div>
+          </div>
+        </div>
+        <!-- Decorative hex + shield -->
+        <div class="header-deco" aria-hidden="true">
+          <div class="shield-icon">🛡️</div>
+          <div class="deco-rings">
+            <div class="deco-ring r1"></div>
+            <div class="deco-ring r2"></div>
+            <div class="deco-ring r3"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ── PROFESSIONAL SUMMARY ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Professional Summary</span>
+          <span class="label-icon">📝</span>
+        </div>
+        <div class="summary-box">
+          <p>
+            Results-driven <strong>Endpoint Security Engineer</strong> with <strong>3+ years</strong> of specialized experience in endpoint security project implementation, deployments, support, and monitoring. Demonstrated expertise spanning threat analysis (proactive and reactive), threat hunting, malware-related incident support, incident coordination, escalation management, and the correlation and identification of multi-vector threats.
+          </p>
+          <p>
+            Experienced in implementing both proactive and reactive mitigation measures, creating threat reports, managing security dashboards, and providing technical administration across diverse enterprise environments.
+          </p>
+          <p>
+            Proficient in <strong>EDR solution support</strong> (Kaspersky EDR Expert/Optimum), Embedded System Security, Lightweight Security for Virtual Machines, Linux Kaspersky security management, on-premises and cloud security deployments, Kaspersky licensing, and BitLocker/Kaspersky encryption. Skilled with <strong>ManageEngine Endpoint Central</strong>, <strong>CrowdStrike</strong>, <strong>Trend Micro</strong>, and <strong>Trend Micro AI Vision One</strong>. Backed by <strong>8+ years</strong> of IT support, infrastructure, and operations experience.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── EXPERIENCE TIMELINE ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Professional Experience</span>
+          <span class="label-icon">💼</span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Job 1 -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-dot">
+              <div class="dot-inner">🛡️</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-card current">
+              <div class="tcard-header">
+                <div class="tcard-title-block">
+                  <h3 class="tcard-role">Endpoint Security Engineer</h3>
+                  <div class="tcard-company">Enterprise Security Organization</div>
+                </div>
+                <div class="tcard-meta">
+                  <span class="tcard-period current-tag">2021 — Present</span>
+                  <span class="tcard-location">📍 Colombo, Sri Lanka</span>
+                </div>
+              </div>
+              <div class="tcard-body">
+                <ul class="tcard-bullets">
+                  <li>Led end-to-end deployment and configuration of <strong>Kaspersky EDR Expert / Optimum</strong> across 1,000+ enterprise endpoints.</li>
+                  <li>Performed <strong>proactive and reactive threat analysis</strong>, threat hunting, and multi-vector threat correlation using SIEM and EDR telemetry.</li>
+                  <li>Managed <strong>malware incident response</strong>, escalation coordination, and post-incident reporting with executive-level threat summaries.</li>
+                  <li>Implemented <strong>BitLocker and Kaspersky encryption</strong> policies across diverse OS environments including Windows and Linux.</li>
+                  <li>Deployed and maintained <strong>Lightweight Security agents</strong> for virtual machine environments and embedded systems.</li>
+                  <li>Maintained <strong>Kaspersky XDR Optimum</strong> platform integrations and on-premises to cloud migration projects.</li>
+                  <li>Designed and maintained <strong>security dashboards</strong> and automated threat reporting frameworks for SOC and management stakeholders.</li>
+                  <li>Administered <strong>Kaspersky licensing</strong>, entitlement management, and vendor coordination.</li>
+                </ul>
+              </div>
+              <div class="tcard-tags">
+                <span class="ttag">Kaspersky EDR</span>
+                <span class="ttag">XDR</span>
+                <span class="ttag">Threat Hunting</span>
+                <span class="ttag">Incident Response</span>
+                <span class="ttag">SIEM</span>
+                <span class="ttag">Linux Security</span>
+                <span class="ttag">Cloud Security</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-dot">
+              <div class="dot-inner">🔒</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-card">
+              <div class="tcard-header">
+                <div class="tcard-title-block">
+                  <h3 class="tcard-role">Senior IT Support Engineer (L2/L3)</h3>
+                  <div class="tcard-company">IT Managed Service Provider</div>
+                </div>
+                <div class="tcard-meta">
+                  <span class="tcard-period">2018 — 2021</span>
+                  <span class="tcard-location">📍 Colombo, Sri Lanka</span>
+                </div>
+              </div>
+              <div class="tcard-body">
+                <ul class="tcard-bullets">
+                  <li>Provided <strong>Level 2 & 3 Help Desk</strong> support across enterprise client environments, resolving complex infrastructure and security incidents.</li>
+                  <li>Managed <strong>IT asset lifecycle</strong> including procurement, deployment, maintenance, and decommissioning across multi-site environments.</li>
+                  <li>Administered <strong>endpoint protection platforms</strong> including <strong>CrowdStrike Falcon</strong> and <strong>Trend Micro</strong> with policy management and alert triage.</li>
+                  <li>Deployed and maintained <strong>ManageEngine Endpoint Central</strong> for patch management, software deployment, and remote management.</li>
+                  <li>Coordinated <strong>managed service delivery</strong> including SLA tracking, ticket management, and client reporting.</li>
+                  <li>Performed <strong>network infrastructure support</strong> including LAN/WAN troubleshooting, firewall management, and VPN configuration.</li>
+                </ul>
+              </div>
+              <div class="tcard-tags">
+                <span class="ttag">CrowdStrike</span>
+                <span class="ttag">Trend Micro</span>
+                <span class="ttag">ManageEngine</span>
+                <span class="ttag">Help Desk L2/L3</span>
+                <span class="ttag">Asset Management</span>
+                <span class="ttag">ITSM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-dot">
+              <div class="dot-inner">💻</div>
+            </div>
+            <div class="timeline-connector last"></div>
+            <div class="timeline-card">
+              <div class="tcard-header">
+                <div class="tcard-title-block">
+                  <h3 class="tcard-role">IT Support Technician</h3>
+                  <div class="tcard-company">Corporate IT Department</div>
+                </div>
+                <div class="tcard-meta">
+                  <span class="tcard-period">2016 — 2018</span>
+                  <span class="tcard-location">📍 Colombo, Sri Lanka</span>
+                </div>
+              </div>
+              <div class="tcard-body">
+                <ul class="tcard-bullets">
+                  <li>Delivered <strong>end-user IT support</strong> including hardware, software, and connectivity troubleshooting across 200+ workstations.</li>
+                  <li>Maintained <strong>antivirus and endpoint security</strong> tools including policy configuration, signature updates, and alert handling.</li>
+                  <li>Assisted in <strong>IT infrastructure projects</strong> including server room maintenance, network cabling, and system imaging.</li>
+                  <li>Managed <strong>user account administration</strong> via Active Directory and group policy management.</li>
+                </ul>
+              </div>
+              <div class="tcard-tags">
+                <span class="ttag">End-User Support</span>
+                <span class="ttag">Active Directory</span>
+                <span class="ttag">Antivirus</span>
+                <span class="ttag">Infrastructure</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── KEY ACHIEVEMENTS ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Key Achievements</span>
+          <span class="label-icon">🏆</span>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card" data-aos>
+            <div class="ac-icon">🚀</div>
+            <div class="ac-content">
+              <div class="ac-title">Enterprise EDR Rollout</div>
+              <div class="ac-desc">Successfully deployed Kaspersky EDR Expert/Optimum across 1,000+ endpoints with zero production downtime.</div>
+            </div>
+          </div>
+          <div class="achievement-card" data-aos>
+            <div class="ac-icon">🎯</div>
+            <div class="ac-content">
+              <div class="ac-title">Multi-Vector Threat Detection</div>
+              <div class="ac-desc">Identified and neutralized complex multi-vector attack campaigns using correlated SIEM + EDR telemetry analysis.</div>
+            </div>
+          </div>
+          <div class="achievement-card" data-aos>
+            <div class="ac-icon">☁️</div>
+            <div class="ac-content">
+              <div class="ac-title">On-Prem to Cloud Migration</div>
+              <div class="ac-desc">Led security workload migration from on-premises infrastructure to cloud while maintaining continuous threat coverage.</div>
+            </div>
+          </div>
+          <div class="achievement-card" data-aos>
+            <div class="ac-icon">📊</div>
+            <div class="ac-content">
+              <div class="ac-title">SOC Dashboard Automation</div>
+              <div class="ac-desc">Designed automated reporting dashboards reducing manual SOC report generation time by 70%.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECURITY EXPERTISE ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Security Proficiency Areas</span>
+          <span class="label-icon">🔬</span>
+        </div>
+        <div class="proficiency-grid">
+          <div class="prof-card" data-aos>
+            <div class="prof-header">
+              <span class="prof-icon">🛡️</span>
+              <span class="prof-title">Endpoint Security &amp; EDR/XDR</span>
+            </div>
+            <ul class="prof-list">
+              <li>Kaspersky EDR Expert / Optimum</li>
+              <li>Kaspersky XDR Optimum</li>
+              <li>CrowdStrike Falcon</li>
+              <li>Palo Alto Cortex XDR</li>
+              <li>Trend Micro / AI Vision One</li>
+              <li>Microsoft Defender for Endpoint</li>
+            </ul>
+            <div class="prof-meter">
+              <div class="prof-meter-fill" style="--w:92%"></div>
+            </div>
+          </div>
+          <div class="prof-card" data-aos>
+            <div class="prof-header">
+              <span class="prof-icon">🔍</span>
+              <span class="prof-title">Threat Detection &amp; Response</span>
+            </div>
+            <ul class="prof-list">
+              <li>Proactive &amp; Reactive Threat Analysis</li>
+              <li>Threat Hunting Operations</li>
+              <li>Multi-vector Threat Correlation</li>
+              <li>Malware Incident Management</li>
+              <li>Escalation &amp; Incident Coordination</li>
+              <li>Executive Threat Reporting</li>
+            </ul>
+            <div class="prof-meter">
+              <div class="prof-meter-fill" style="--w:88%"></div>
+            </div>
+          </div>
+          <div class="prof-card" data-aos>
+            <div class="prof-header">
+              <span class="prof-icon">🔐</span>
+              <span class="prof-title">Security Hardening &amp; Encryption</span>
+            </div>
+            <ul class="prof-list">
+              <li>BitLocker Full Disk Encryption</li>
+              <li>Kaspersky Encryption Solutions</li>
+              <li>Linux Kaspersky Security Mgmt</li>
+              <li>Embedded System Security</li>
+              <li>VM Lightweight Security Agents</li>
+              <li>Policy Design &amp; Enforcement</li>
+            </ul>
+            <div class="prof-meter">
+              <div class="prof-meter-fill" style="--w:85%"></div>
+            </div>
+          </div>
+          <div class="prof-card" data-aos>
+            <div class="prof-header">
+              <span class="prof-icon">☁️</span>
+              <span class="prof-title">Cloud &amp; Infrastructure Security</span>
+            </div>
+            <ul class="prof-list">
+              <li>Cloud Endpoint Security Deployment</li>
+              <li>On-Prem to Cloud Migration</li>
+              <li>AWS Security Hub Integration</li>
+              <li>ManageEngine Endpoint Central</li>
+              <li>Vulnerability Management</li>
+              <li>Security Dashboard Management</li>
+            </ul>
+            <div class="prof-meter">
+              <div class="prof-meter-fill" style="--w:80%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CERTIFICATIONS ── -->
+      <section class="cv-section" id="cv-certs-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Certifications</span>
+          <span class="label-icon">🏅</span>
+        </div>
+        <div class="cv-certs-grid" id="cv-certs-grid">
+          <!-- Populated by JS from localStorage, or shows placeholder -->
+          <div class="cert-placeholder" id="cert-placeholder">
+            <div class="cp-icon">🏆</div>
+            <div class="cp-text">
+              <div class="cp-title">Certifications</div>
+              <div class="cp-sub">Add certificates via the portfolio editor — they will appear here automatically.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">Education</span>
+          <span class="label-icon">🎓</span>
+        </div>
+        <div class="edu-cards">
+          <div class="edu-card" data-aos>
+            <div class="edu-icon">🎓</div>
+            <div class="edu-content">
+              <div class="edu-degree">Bachelor of Science / Technology</div>
+              <div class="edu-institution">University / Institution — Sri Lanka</div>
+              <div class="edu-period">Information Technology / Relevant Field</div>
+            </div>
+            <div class="edu-status">Completed</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── REFERENCES ── -->
+      <section class="cv-section">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span class="label-text">References</span>
+          <span class="label-icon">📋</span>
+        </div>
+        <div class="references-box">
+          <span class="ref-icon">📌</span>
+          <span>Available upon request</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── PRINT WATERMARK ── -->
+  <div class="print-watermark" aria-hidden="true">PRASAD THILANKA · ENDPOINT SECURITY ENGINEER</div>
+
+  <script src="cv.js"></script>
+</body>
+</html>
