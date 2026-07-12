@@ -415,7 +415,7 @@ function renderCerts() {
               </div>
               <div style="display:flex;gap:10px;margin-top:15px;">
                 <button class="cert-view-btn" data-index="${i}" style="flex:1;">View</button>
-                <button onclick="this.closest('.cert-flip-card').blur()" style="flex:1;background:rgba(255,255,255,0.1);color:var(--text-1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;font-weight:600;">Close</button>
+                <button onclick="this.closest('.cert-flip-card').classList.remove('flipped'); event.stopPropagation();" style="flex:1;background:rgba(255,255,255,0.1);color:var(--text-1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;font-weight:600;">Close</button>
               </div>
             </div>
           </div>
@@ -472,11 +472,10 @@ function renderCerts() {
   grid.querySelectorAll('.cert-flip-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if(e.target.tagName==='BUTTON') return;
-      const idx = parseInt(card.dataset.certIdx);
-      openCertModal(idx);
+      card.classList.toggle('flipped');
     });
     card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') openCertModal(parseInt(card.dataset.certIdx));
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
     });
   });
 }
