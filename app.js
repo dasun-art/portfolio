@@ -423,7 +423,7 @@ function renderCerts() {
     html += '</div>';
   }
 
-  // 2. VENDOR TEXT BADGES
+    // 2. VENDOR TEXT BADGES
   if (badgeCerts.length > 0) {
     const grouped = {};
     badgeCerts.forEach(c => {
@@ -432,11 +432,11 @@ function renderCerts() {
       grouped[issuer].push(c);
     });
 
-    html += '<div class="certs-vendor-groups" style="display:flex;flex-direction:column;gap:2rem;">';
+    html += '<div class="certs-vendor-groups" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:2rem;">';
     for (const [vendor, list] of Object.entries(grouped)) {
       html += `
-        <div class="vendor-group" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
-          <h4 class="vendor-title" style="margin-bottom:1rem;color:var(--text-1);font-family:var(--font-mono);font-size:1.1rem;display:flex;align-items:center;gap:0.5rem;"><span class="vendor-icon">🛡️</span> ${vendor} Certified</h4>
+        <div class="vendor-group" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <h4 class="vendor-title" style="margin-bottom:1rem;color:var(--text-1);font-family:var(--font-mono);font-size:1.2rem;display:flex;align-items:center;gap:0.5rem;"><span class="vendor-icon">🛡️</span> ${vendor} Certified</h4>
           <div class="vendor-badges" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
             ${list.map(c => {
               const i = certs.indexOf(c);
@@ -454,6 +454,8 @@ function renderCerts() {
     html += '</div>';
   }
 
+  // Override parent CSS grid that was squishing the layout
+  grid.style.display = 'block';
   grid.innerHTML = html;
 
   // Click to open modal (keyboard too)
