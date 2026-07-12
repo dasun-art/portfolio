@@ -596,6 +596,33 @@ function applyResumeLink() {
       el.removeAttribute('download');
     }
   });
+/* ══════════ FEEDBACK MODAL ══════════ */
+const feedbackBtn = document.getElementById('feedback-open-btn');
+const feedbackModal = document.getElementById('feedback-modal');
+const feedbackCloseBtn = document.getElementById('feedback-close-btn');
+
+if (feedbackBtn && feedbackModal && feedbackCloseBtn) {
+  feedbackBtn.addEventListener('click', () => {
+    feedbackModal.classList.add('open');
+  });
+
+  feedbackCloseBtn.addEventListener('click', () => {
+    feedbackModal.classList.remove('open');
+  });
+
+  // Close when clicking outside the modal content
+  feedbackModal.addEventListener('click', (e) => {
+    if (e.target === feedbackModal) {
+      feedbackModal.classList.remove('open');
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && feedbackModal.classList.contains('open')) {
+      feedbackModal.classList.remove('open');
+    }
+  });
 }
 applyResumeLink();
 
