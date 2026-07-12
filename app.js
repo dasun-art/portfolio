@@ -66,7 +66,19 @@ let contactInfo = JSON.parse(localStorage.getItem('portfolio_contact') || '{}');
 let resumeData  = localStorage.getItem('portfolio_resume_url') || null;
 let photoData   = localStorage.getItem('portfolio_photo_url') || null;
 
-/* ══════════ IST CLOCK ══════════ */
+/* ══════════ ADMIN VISIBILITY CHECK ══════════ */
+// Hide all edit buttons from normal visitors. 
+// You must be logged into dashboard.html to see them.
+document.addEventListener('DOMContentLoaded', () => {
+  const isAdmin = localStorage.getItem('ptd_admin_pass') !== null;
+  if (!isAdmin) {
+    document.getElementById('admin-toggle-btn')?.remove();
+    document.getElementById('admin-panel')?.remove();
+    document.querySelectorAll('button[onclick*="admin-toggle"]').forEach(b => b.remove());
+  }
+});
+
+/* ══════════ DOM ELEMENTS ══════════ */
 function updateClock() {
   const now = new Date();
   const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }));
