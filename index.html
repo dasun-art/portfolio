@@ -446,6 +446,43 @@
     <div class="cert-modal-box">
       <button class="cert-modal-close" id="cert-modal-close" aria-label="Close">&times;</button>
       <div id="cert-modal-content"></div>
+  <!-- ── SECURE FEEDBACK MODAL ── -->
+  <button class="feedback-float-btn" id="feedback-open-btn" aria-label="Leave Feedback">
+    <span class="feedback-icon">💬</span>
+    <span class="feedback-text">Leave Feedback</span>
+  </button>
+
+  <div class="feedback-modal-overlay" id="feedback-modal">
+    <div class="feedback-modal-content">
+      <button class="feedback-close-btn" id="feedback-close-btn">&times;</button>
+      <div class="feedback-header">
+        <div class="feedback-glitch-icon">🛡️</div>
+        <h3>Secure Transmission</h3>
+        <p>Send private feedback, job requirements, or skill suggestions. (Visible only to me)</p>
+      </div>
+      <!-- FormSubmit.co sends this directly to your email for free -->
+      <form action="https://formsubmit.co/thilanka.prasad@outlook.com" method="POST" class="feedback-form">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="New Portfolio Feedback / Suggestion!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://dasun-art.github.io/portfolio/">
+        
+        <div class="feedback-input-group">
+          <input type="text" name="name" id="fb-name" required placeholder=" ">
+          <label for="fb-name">Your Name / Company</label>
+        </div>
+        <div class="feedback-input-group">
+          <input type="email" name="email" id="fb-email" required placeholder=" ">
+          <label for="fb-email">Email Address</label>
+        </div>
+        <div class="feedback-input-group">
+          <textarea name="message" id="fb-message" rows="4" required placeholder=" "></textarea>
+          <label for="fb-message">Feedback, Requirements, or Advice...</label>
+        </div>
+        <button type="submit" class="feedback-submit-btn">
+          <span>Transmit Message</span>
+        </button>
+      </form>
     </div>
   </div>
 
