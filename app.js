@@ -403,7 +403,8 @@ function renderCerts() {
           </div>
           <div class="cert-flip-back">
             <div class="cert-back-content">
-              <div class="cert-back-title">${c.title}</div>
+              ${isAdmin ? `<button onclick="deleteCert(${i})" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#ff4444;z-index:10;" title="Delete Certificate permanently">🗑️</button>` : ''}
+              <div class="cert-back-title" style="margin-top:10px;">${c.title}</div>
               <div class="cert-back-row">
                 <span class="cert-back-label">Issued by</span>
                 <span class="cert-back-value">${c.issuer || '—'}</span>
@@ -412,8 +413,10 @@ function renderCerts() {
                 <span class="cert-back-label">Date</span>
                 <span class="cert-back-value">${c.date || '—'}</span>
               </div>
-              <button class="cert-view-btn" data-index="${i}">View Credential</button>
-              ${isAdmin ? `<button class="admin-del-btn" onclick="deleteCert(${i})" style="margin-top:10px;width:100%">Delete</button>` : ''}
+              <div style="display:flex;gap:10px;margin-top:15px;">
+                <button class="cert-view-btn" data-index="${i}" style="flex:1;">View</button>
+                <button onclick="this.closest('.cert-flip-card').blur()" style="flex:1;background:rgba(255,255,255,0.1);color:var(--text-1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;font-weight:600;">Close</button>
+              </div>
             </div>
           </div>
         </div>
