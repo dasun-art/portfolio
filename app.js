@@ -596,6 +596,8 @@ function applyResumeLink() {
       el.removeAttribute('download');
     }
   });
+}
+
 /* ══════════ FEEDBACK MODAL ══════════ */
 const feedbackBtn = document.getElementById('feedback-open-btn');
 const feedbackModal = document.getElementById('feedback-modal');
