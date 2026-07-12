@@ -56,8 +56,61 @@ const DEFAULT_PROJECTS = [
   },
 ];
 
+const DEFAULT_CERTS = [
+  { title: "Endpoint Security and Management", issuer: "Kaspersky", date: "Completed" },
+  { title: "Next EDR Foundations", issuer: "Kaspersky", date: "Completed" },
+  { title: "Next EDR Optimum", issuer: "Kaspersky", date: "Completed" },
+  { title: "KATA & EDR Administration", issuer: "Kaspersky", date: "Completed" },
+  { title: "KATA Investigation", issuer: "Kaspersky", date: "Completed" },
+  { title: "Hybrid Cloud Security Virtualization", issuer: "Kaspersky", date: "Completed" },
+  { title: "Secure Mail Gateway", issuer: "Kaspersky", date: "Completed" },
+  { title: "Automated Security Awareness Platform", issuer: "Kaspersky", date: "Completed" },
+  { title: "Endpoint Security Cloud", issuer: "Kaspersky", date: "Completed" },
+  { title: "Endpoint Security Encryption", issuer: "Kaspersky", date: "Completed" },
+  { title: "FALCON 101: Platform Essentials", issuer: "CrowdStrike", date: "Completed" },
+  { title: "FALCON 104: Getting Started with Endpoint Security", issuer: "CrowdStrike", date: "Completed" },
+  { title: "FALCON 102: Platform Onboarding Configuration", issuer: "CrowdStrike", date: "Completed" },
+  { title: "FALCON 100: Platform Architecture Overview", issuer: "CrowdStrike", date: "Completed" },
+  { title: "FALCON 10h: Sensor Install & Troubleshooting", issuer: "CrowdStrike", date: "Completed" },
+  { title: "PTT 0104pc: Endpoint Security Module", issuer: "CrowdStrike", date: "Completed" },
+  { title: "PTT-UP-1102: Partner Technical Sales", issuer: "CrowdStrike", date: "Completed" },
+  { title: "GEN 100: University Orientation", issuer: "CrowdStrike", date: "Completed" },
+  { title: "IDP 170: Falcon Identity Protection", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CLOUD 100: Cloud Security Fundamentals", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CLOUD 173: Shifting Left with Cloud Security", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CLOUD 170: Runtime Security Fundamentals", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CLOUD 180: ASPM in Cloud Security", issuer: "CrowdStrike", date: "Completed" },
+  { title: "PTT 0101pc: Platform Technical Fundamentals", issuer: "CrowdStrike", date: "Completed" },
+  { title: "SIEM 100: Next-Gen SIEM Fundamentals", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CAO 100: Counter Adversary Operations", issuer: "CrowdStrike", date: "Completed" },
+  { title: "CLOUD 125: Managing Cloud Assets", issuer: "CrowdStrike", date: "Completed" },
+  { title: "SIEM 101: Workbench Fundamentals", issuer: "CrowdStrike", date: "Completed" },
+  { title: "TrendAI Vision One™ Endpoint Security Practitioner", issuer: "TrendMicro", date: "Completed" },
+  { title: "TrendAI Vision One™ AI Security", issuer: "TrendMicro", date: "Completed" },
+  { title: "TrendAI Vision One™ Services", issuer: "TrendMicro", date: "Completed" },
+  { title: "TrendAI Vision One™ Threat Intelligence", issuer: "TrendMicro", date: "Completed" },
+  { title: "Trend Vision One™ Cyber Risk Exposure Management", issuer: "TrendMicro", date: "Completed" },
+  { title: "Trend Vision One™ Platform", issuer: "TrendMicro", date: "Completed" },
+  { title: "Trend Vision One™ Security Operations (SecOps)", issuer: "TrendMicro", date: "Completed" },
+  { title: "Education Portal for Partners", issuer: "TrendMicro", date: "Completed" },
+  { title: "Cortex Cloud-Focused Security", issuer: "Cortex", date: "Completed" },
+  { title: "Cybersecurity Fundamentals", issuer: "Cortex", date: "Completed" },
+  { title: "Introduction to SecOps", issuer: "Cortex", date: "Completed" },
+  { title: "SOC Processes", issuer: "Cortex", date: "Completed" },
+  { title: "Network-Focused Security", issuer: "Cortex", date: "Completed" },
+  { title: "Endpoint Security", issuer: "Cortex", date: "Completed" },
+  { title: "Threat Investigations", issuer: "Cortex", date: "Completed" },
+  { title: "Automation & Orchestration", issuer: "Cortex", date: "Completed" },
+  { title: "Cortex XDR: Features", issuer: "Cortex", date: "Completed" },
+  { title: "Cloud Security Fundamentals", issuer: "Cortex", date: "Completed" },
+  { title: "Security Operations Fundamentals", issuer: "Cortex", date: "Completed" },
+  { title: "Cortex Foundations", issuer: "Cortex", date: "Completed" },
+  { title: "Certified Cybersecurity Practitioner", issuer: "Cortex", date: "Completed" }
+];
+
 // Load from localStorage or use defaults
-let certs    = JSON.parse(localStorage.getItem('portfolio_certs') || '[]');
+let certs = JSON.parse(localStorage.getItem('portfolio_certs'));
+if (!certs || certs.length === 0) certs = DEFAULT_CERTS;
 let projects = JSON.parse(localStorage.getItem('portfolio_projects') || 'null') || DEFAULT_PROJECTS;
 const DEFAULT_LINKEDIN = 'https://www.linkedin.com/in/prasad-thilanaka-14213518b';
 let socials  = JSON.parse(localStorage.getItem('portfolio_socials') || '{}');
@@ -67,8 +120,7 @@ let resumeData  = localStorage.getItem('portfolio_resume_url') || null;
 let photoData   = localStorage.getItem('portfolio_photo_url') || null;
 
 /* ══════════ ADMIN VISIBILITY CHECK ══════════ */
-// Hide all edit buttons from normal visitors. 
-// You must be logged into dashboard.html to see them.
+
 document.addEventListener('DOMContentLoaded', () => {
   const isAdmin = localStorage.getItem('ptd_admin_pass') !== null;
   if (!isAdmin) {
@@ -304,7 +356,7 @@ function renderProjects() {
 }
 renderProjects();
 
-/* ══════════ CERTIFICATES — STUNNING SHOWCASE ══════════ */
+/* ══════════ CERTIFICATES — HYBRID SHOWCASE ══════════ */
 function renderCerts() {
   const grid = document.getElementById('certs-grid');
   const empty = document.getElementById('certs-empty');
@@ -317,63 +369,104 @@ function renderCerts() {
   }
   if (empty) empty.style.display = 'none';
 
-  grid.innerHTML = certs.map((c, i) => `
-    <div class="cert-flip-card" data-cert-idx="${i}" tabindex="0" role="button" aria-label="View certificate: ${c.title}">
-      <div class="cert-flip-inner">
+  const isAdmin = localStorage.getItem('ptd_admin_pass') !== null;
+  const visualCerts = certs.filter(c => c.imgSrc || c.img);
+  const badgeCerts = certs.filter(c => !c.imgSrc && !c.img);
 
-        <!-- FRONT FACE -->
-        <div class="cert-flip-front">
-          ${c.ribbon ? `<div class="cert-ribbon">${c.ribbon}</div>` : ''}
-          <div class="cert-front-content">
-            <div class="cert-front-header">
-              <div class="cert-front-logo">${c.logo || '🏆'}</div>
-              <div class="cert-verified-badge">Certified</div>
+  let html = '';
+
+  // 1. VISUAL 3D FLIP CARDS
+  if (visualCerts.length > 0) {
+    html += '<div class="certs-visual-grid" style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:2rem">';
+    html += visualCerts.map(c => {
+      const i = certs.indexOf(c);
+      return `
+      <div class="cert-flip-card" data-cert-idx="${i}" tabindex="0" role="button" aria-label="View certificate: ${c.title}">
+        <div class="cert-flip-inner">
+          <div class="cert-flip-front">
+            ${c.ribbon ? `<div class="cert-ribbon">${c.ribbon}</div>` : ''}
+            <div class="cert-front-content">
+              <div class="cert-front-header">
+                <div class="cert-front-logo">${c.logo || '🏆'}</div>
+                <div class="cert-verified-badge">Certified</div>
+              </div>
+              <div class="cert-front-body">
+                <div class="cert-issuer-name">${c.issuer || 'Unknown Issuer'}</div>
+                <div class="cert-title-text">${c.title}</div>
+              </div>
+              <div class="cert-front-footer">
+                <span class="cert-date-text">📅 ${c.date || 'N/A'}</span>
+                <span class="cert-hover-hint">Hover to flip →</span>
+              </div>
             </div>
-            <div class="cert-front-body">
-              <div class="cert-issuer-name">${c.issuer || 'Unknown Issuer'}</div>
-              <div class="cert-title-text">${c.title}</div>
-            </div>
-            <div class="cert-front-footer">
-              <span class="cert-date-text">📅 ${c.date || 'N/A'}</span>
-              <span class="cert-hover-hint">Hover to flip →</span>
+            <div class="cert-seal">🛡️</div>
+          </div>
+          <div class="cert-flip-back">
+            <div class="cert-back-content">
+              <div class="cert-back-title">${c.title}</div>
+              <div class="cert-back-row">
+                <span class="cert-back-label">Issued by</span>
+                <span class="cert-back-value">${c.issuer || '—'}</span>
+              </div>
+              <div class="cert-back-row">
+                <span class="cert-back-label">Date</span>
+                <span class="cert-back-value">${c.date || '—'}</span>
+              </div>
+              <button class="cert-view-btn" data-index="${i}">View Credential</button>
+              ${isAdmin ? `<button class="admin-del-btn" onclick="deleteCert(${i})" style="margin-top:10px;width:100%">Delete</button>` : ''}
             </div>
           </div>
-          <div class="cert-seal">🛡️</div>
         </div>
-
-        <!-- BACK FACE -->
-        <div class="cert-flip-back">
-          <div class="cert-back-content">
-            <div class="cert-back-title">${c.title}</div>
-            <div class="cert-back-row">
-              <span class="cert-back-label">Issued by</span>
-              <span class="cert-back-value">${c.issuer || '—'}</span>
-            </div>
-            <div class="cert-back-row">
-              <span class="cert-back-label">Date</span>
-              <span class="cert-back-value">${c.date || '—'}</span>
-            </div>
-            <div class="cert-back-row">
-              <span class="cert-back-label">Category</span>
-              <span class="cert-back-value">${c.category || 'Cybersecurity'}</span>
-            </div>
-            ${c.credId ? `<div class="cert-back-row">
-              <span class="cert-back-label">Credential ID</span>
-              <span class="cert-back-value">${c.credId.substring(0, 14)}…</span>
-            </div>` : ''}
-            <div class="cert-back-cta" onclick="openCertModal(${i})">
-              👁️ View Full Certificate
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  `).join('');
+      `;
+    }).join('');
+    html += '</div>';
+  }
+
+  // 2. VENDOR TEXT BADGES
+  if (badgeCerts.length > 0) {
+    const grouped = {};
+    badgeCerts.forEach(c => {
+      const issuer = c.issuer || 'Other';
+      if (!grouped[issuer]) grouped[issuer] = [];
+      grouped[issuer].push(c);
+    });
+
+    html += '<div class="certs-vendor-groups" style="display:flex;flex-direction:column;gap:2rem;">';
+    for (const [vendor, list] of Object.entries(grouped)) {
+      html += `
+        <div class="vendor-group" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
+          <h4 class="vendor-title" style="margin-bottom:1rem;color:var(--text-1);font-family:var(--font-mono);font-size:1.1rem;display:flex;align-items:center;gap:0.5rem;"><span class="vendor-icon">🛡️</span> ${vendor} Certified</h4>
+          <div class="vendor-badges" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+            ${list.map(c => {
+              const i = certs.indexOf(c);
+              return `
+              <div class="vendor-badge" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);padding:0.4rem 0.8rem;border-radius:20px;font-size:0.85rem;color:var(--text-2);display:flex;align-items:center;gap:0.4rem;">
+                <span class="vb-dot" style="width:6px;height:6px;background:var(--accent-1);border-radius:50%;display:inline-block;box-shadow:0 0 5px var(--accent-1)"></span>
+                <span class="vb-title">${c.title}</span>
+                ${isAdmin ? `<button class="admin-del-btn mini-del" onclick="deleteCert(${i})" style="background:none;border:none;color:var(--danger);cursor:pointer;margin-left:5px">&times;</button>` : ''}
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+    html += '</div>';
+  }
+
+  grid.innerHTML = html;
 
   // Click to open modal (keyboard too)
+  grid.querySelectorAll('.cert-view-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const idx = e.target.dataset.index;
+      openCertModal(idx);
+    });
+  });
   grid.querySelectorAll('.cert-flip-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if(e.target.tagName==='BUTTON') return;
       const idx = parseInt(card.dataset.certIdx);
       openCertModal(idx);
     });
