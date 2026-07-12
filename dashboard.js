@@ -38,6 +38,7 @@ const loginError  = document.getElementById('login-error');
 
 function tryLogin(){
   if(loginInput.value === getPass()){
+    localStorage.setItem(PASS_KEY, loginInput.value); // Set session for app.js
     loginScreen.style.display='none';
     dashboard.style.display='grid';
     renderAll();
