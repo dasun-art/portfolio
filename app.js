@@ -17,43 +17,26 @@ const SKILLS_BARS = [
 const SKILL_BADGES = [
   { icon: '🛡️', name: 'EDR/XDR',         level: 'Expert' },
   { icon: '🔍', name: 'Threat Hunting',   level: 'Advanced' },
-  { icon: '📡', name: 'SIEM',             level: 'Advanced' },
-  { icon: '☁️', name: 'Cloud Security',   level: 'Mid' },
-  { icon: '🔬', name: 'Vuln. Mgmt',       level: 'Advanced' },
   { icon: '🐧', name: 'Linux Security',   level: 'Advanced' },
   { icon: '🔐', name: 'BitLocker / Enc.', level: 'Expert' },
-  { icon: '🌐', name: 'Network Sec.',     level: 'Mid' },
-  { icon: '📊', name: 'Dashboards',       level: 'Advanced' },
   { icon: '🚨', name: 'Incident Response',level: 'Advanced' },
   { icon: '💻', name: 'IT Operations',    level: 'Expert' },
-  { icon: '📋', name: 'ITSM / ITIL',     level: 'Mid' },
+  { icon: '🛠️', name: 'Tech Support',      level: 'Expert' },
 ];
 
 const DEFAULT_PROJECTS = [
   {
     emoji: '🛡️', title: 'Enterprise EDR Deployment',
     tags: ['Kaspersky EDR', 'Endpoint Security', 'Enterprise'],
-    desc: 'Led end-to-end deployment of Kaspersky EDR Expert/Optimum across 1,000+ endpoints. Implemented policy sets, exclusions, and threat response workflows.',
+    desc: 'Led end-to-end deployment of Kaspersky EDR Expert/Optimum across large-scale enterprise endpoints. Implemented policy sets, exclusions, and threat response workflows.',
     link: '', filter: 'security'
   },
   {
-    emoji: '🔍', title: 'Multi-Vector Threat Hunt',
-    tags: ['Threat Hunting', 'CrowdStrike', 'SIEM'],
-    desc: 'Performed proactive threat hunting using CrowdStrike Falcon telemetry and SIEM correlation to identify lateral movement and persistence indicators.',
-    link: '', filter: 'security'
-  },
-  {
-    emoji: '☁️', title: 'Cloud Security Deployment',
-    tags: ['Cloud Security', 'AWS', 'Endpoint'],
-    desc: 'Implemented on-premises to cloud security migration, including cloud endpoint coverage and integration with AWS Security Hub.',
-    link: '', filter: 'cloud'
-  },
-  {
-    emoji: '📊', title: 'Security Dashboard & Reporting',
-    tags: ['SIEM', 'Dashboards', 'Reporting'],
-    desc: 'Designed and implemented security operations dashboards and automated threat reports for management and SOC teams.',
+    emoji: '💻', title: 'Advanced Endpoint Support & Troubleshooting',
+    tags: ['Tech Support', 'Incident Management', 'Endpoints'],
+    desc: 'Provided high-level technical support for endpoint security products, resolving complex deployment issues and system conflicts in production environments.',
     link: '', filter: 'soc'
-  },
+  }
 ];
 
 const DEFAULT_CERTS = [
